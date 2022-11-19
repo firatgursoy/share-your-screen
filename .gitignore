@@ -1,0 +1,7 @@
+# Default ignored files
+/.idea/
+/js/jquery-3.6.1.min.js
+/js/peerjs.min.js
+/js/bootstrap.min.js
+/js/clipboard.min.js
+/js/application.js

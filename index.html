@@ -1,0 +1,134 @@
+<html>
+<head>
+    <title>Share Your Screen</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link data-theme="1" href="./css/bootstrap-theme-1.css" rel="stylesheet">
+    <link href="./css/application.css" rel="stylesheet">
+<!--
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script src="./js/peerjs.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/clipboard.min.js"></script>
+    <script src="./js/application.js"></script>
+    -->
+    <script src="./js/application.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <video id="video" width="0" height="0" controls="controls" autoplay></video>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="share-screen-modal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h3 class="modal-title">Share Your Screen</h3>
+                        </div>
+
+                        <div class="col-sm-5">
+                            <div class="btn-group close" role="group">
+                                <button type="button" data-theme-id="1" class="btn btn-default">1</button>
+                                <button type="button" data-theme-id="2" class="btn btn-default">2</button>
+                                <button type="button" data-theme-id="3" class="btn btn-default">3</button>
+                                <button type="button" data-theme-id="4" class="btn btn-default">4</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form" id="settings-form">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Resolution</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="resolution">
+                                    <option value="2160">3840 x 2160 [4K]</option>
+                                    <option value="1440">2560 x 1440 [2K]</option>
+                                    <option value="1080">1920 x 1080 [FHD]</option>
+                                    <option value="768">1366 x 768</option>
+                                    <option value="720">1280 x 720 &nbsp;[HD]</option>
+                                    <option value="480" selected="selected">640 &nbsp;x 480 &nbsp;[SD]</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Frame Rate</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="frame-rate">
+                                    <option value="144">144</option>
+                                    <option value="120">120</option>
+                                    <option value="60">60</option>
+                                    <option value="30">30</option>
+                                    <option value="24" selected="selected">24</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cursor-visibility" class="col-sm-4 control-label">Cursor Visibility</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="cursor-visibility">
+                                    <option value="never">Never</option>
+                                    <option value="always" selected="selected">Always</option>
+                                    <option value="motion">Motion</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="audio-enable" class="col-sm-4 control-label">Audio Enable</label>
+                            <div class="col-sm-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-primary active">
+                                        <input id="audio-enable" type="checkbox" autocomplete="off" checked>
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr></hr>
+                    </form>
+
+                    <p>Share following link with your friends.</p>
+                    <div class="input-group">
+                        <input id="link-input" type="text" class="form-control" readonly="readonly">
+                        <span class="input-group-btn">
+			<button data-clipboard-target="#link-input" id="link-button" class="btn btn-primary" type="button"
+                    data-toggle="popover" data-placement="top" data-content="Copied!">
+				<span class="glyphicon glyphicon-copy" aria-hidden="true">
+			</span> Copy!
+            </button>
+
+			</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group has-warning" id="active-watchers-div">
+                                <input type="text" value="No active watchers." disabled="disabled"
+                                       class="form-control"
+                                       id="active-watchers" placeholder="Active Watchers">
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <button id="start-sharing" type="button" class="float-right btn btn-primary"
+                                    data-toggle="button">Start
+                                Sharing
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
